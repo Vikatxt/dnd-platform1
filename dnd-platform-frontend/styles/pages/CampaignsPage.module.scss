@@ -1,0 +1,252 @@
+@use '@/styles/utils.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 60px 60px;
+  background-image: url('/backgrounds/campaing-page-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f5f0e6;
+  font-family: $font-main;
+}
+
+.title {
+  @include blue-gradient-text;
+  font-size: 50px;
+  font-weight: 800;
+  font-family: $font-headings;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 54px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 38px;
+  }
+}
+
+.subtitle {
+  font-size: 30px;
+  max-width: 700px;
+  margin: 0px auto 20px auto;
+  text-align: center;
+  @include blue-gradient-text;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.rightBlock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+// 🔹 Кнопка "Створити кампанію" — як у профілі
+.createButton {
+  @include image-button-secondary;
+
+  span {
+    font-family: $font-headings;
+    font-size: 16px;
+    color: #d6e3f0;
+    text-transform: uppercase;
+    pointer-events: none;
+    text-align: center;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+    width: 160px;
+  }
+
+  @media (max-width: 768px) {
+    width: 160px;
+    aspect-ratio: 9 / 4.5;
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+.searchInput {
+  padding: 10px 16px;
+  height: 44px;
+  font-size: 1rem;
+  font-family: $font-headings;
+  border-radius: 8px;
+  border: 1px solid rgba(176, 200, 232, 0.35);
+  background: rgba(25, 30, 40, 0.85);
+  color: #d0e2ff;
+  min-width: 180px;
+  transition: all 0.3s ease;
+  appearance: none;
+
+  &::placeholder {
+    color: #d0e2ff;
+    opacity: 0.8;
+    font-family: $font-headings;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #8abfff;
+    box-shadow: 0 0 8px rgba(120, 180, 255, 0.3);
+  }
+}
+
+.sortSelect {
+  padding: 10px 16px;
+  height: 44px;
+  font-size: 1rem;
+  font-family: $font-headings;
+  border-radius: 8px;
+  border: 1px solid rgba(176, 200, 232, 0.35);
+  background: rgba(25, 30, 40, 0.85);
+  color: #d0e2ff;
+  min-width: 180px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23d0e2ff' viewBox='0 0 24 24' width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 42px;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #8abfff;
+    box-shadow: 0 0 8px rgba(120, 180, 255, 0.3);
+  }
+
+  option {
+    font-family: $font-headings;
+    background-color: #1c1f2b;
+    color: #d0e2ff;
+    font-size: 1rem;
+  }
+}
+
+.tripleToggle {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(176, 200, 232, 0.35);
+  background: rgba(30, 40, 55, 0.9);
+  height: 40px;
+  min-width: 240px;
+}
+
+.toggleOption {
+  flex: 1;
+  font-family: $font-headings;
+  font-size: 1rem;
+  color: #bcd6f0;
+  background: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  line-height: 40px;
+  padding: 0 14px;
+  transition: all 0.2s ease;
+  position: relative;
+  text-transform: none;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &:hover {
+    background: rgba(160, 200, 255, 0.05);
+  }
+}
+
+.active {
+  background: linear-gradient(to bottom, #3f5873, #2c3e54);
+  color: #e5f0ff;
+  font-weight: 600;
+  box-shadow: inset 0 0 6px rgba(180, 200, 255, 0.25);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardWrapper {
+  width: 100%;
+  max-width: 320px; // 🔐 обмеження ширини для уніфікації
+  flex: 1 1 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 16px rgba(150, 200, 255, 0.2);
+  }
+}
+
+
+.status {
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: $font-main;
+  color: #ccc;
+}

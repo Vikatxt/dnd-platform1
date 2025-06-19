@@ -1,0 +1,76 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.panel {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-left: 3px solid #9dc1ff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #e2eaf2;
+  font-family: $font-headings;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #cdd8e5;
+  text-shadow: 0 0 6px #9dc1ff;
+  @include blue-gradient-text;
+}
+
+.resultBox {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #5a7ddc;
+  padding: 10px;
+  border-radius: 8px;
+  color: #e9f1ff;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 0 6px #6d91bc;
+
+  .total {
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 6px #9dc1ff;
+    font-size: 16px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    color: #a5c5ff;
+    text-shadow: 0 0 3px #6d91bc;
+  }
+
+  tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  button.rollBtn {
+    background: #1c2631;
+    border: 2px solid #6d91bc;
+    border-radius: 6px;
+    color: #d9eaff;
+    font-size: 16px;
+    padding: 4px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #293742;
+      box-shadow: 0 0 6px #9dc1ff;
+    }
+  }
+}

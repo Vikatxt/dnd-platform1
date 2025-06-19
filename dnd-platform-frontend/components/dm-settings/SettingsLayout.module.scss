@@ -1,0 +1,109 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.layout {
+  padding: 80px 60px 60px;
+  background: linear-gradient(to bottom, #0a0d15, #111827);
+  font-family: $font-headings;
+  color: #d6e3f0;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.title {
+  @include blue-gradient-text;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.block {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(90, 110, 140, 0.3);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: 768px) {
+    padding: 1.2rem 1rem;
+  }
+}
+
+.blockTitle {
+  font-family: $font-headings;
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  color: #e0ebff;
+  text-shadow: 0 0 4px rgba(0, 70, 160, 0.3);
+}
+
+.description {
+  color: #a5afc6;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.blockCenter {
+  @extend .block;
+  text-align: center;
+}
+
+.startButton {
+  @include image-button-primary;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  text-transform: uppercase; // 🔠 робить текст капсом
+  color: #ffffff; // 🔳 білий текст
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: $font-headings;
+}
+
+
+.status {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  color: #cfd5e0;
+}
+
+.statusError {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  color: #ff7a7a;
+}
+
+.gridTwoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridThreeCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}

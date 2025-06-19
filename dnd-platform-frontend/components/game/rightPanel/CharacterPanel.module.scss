@@ -1,0 +1,112 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-left: 3px solid #9dc1ff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #e2eaf2;
+  font-family: $font-headings;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #9dc1ff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  @include blue-gradient-text;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #aabbd5;
+}
+
+.statsBlock {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.statBig {
+  flex: 1;
+  background: rgba(20, 30, 45, 0.5);
+  border: 2px solid #4a5c74;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #d9e4f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 20px;
+    color: #78aaff;
+  }
+
+  strong {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 4px #78aaff;
+  }
+}
+
+.abilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.abilityBox {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #3f4f68;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  font-family: $font-headings;
+
+  .abilityName {
+    font-size: 13px;
+    color: #8da2c9;
+    margin-bottom: 4px;
+  }
+
+  .abilityValue {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 3px #6faeff;
+  }
+}

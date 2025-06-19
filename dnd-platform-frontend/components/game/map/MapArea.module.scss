@@ -1,0 +1,67 @@
+.mapContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.mapInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.cell {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+}
+
+.character {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #2d882d;
+  width: 30px;
+  height: 30px;
+}
+
+.npc {
+  position: absolute;
+  border-radius: 50%;
+  cursor: grab;
+  background-color: #883333;
+  background-size: cover;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+}
+
+.fog {
+  position: absolute;
+  background-image: url('/textures/fog-thick.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+}
+

@@ -1,0 +1,60 @@
+.body {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  height: calc(100vh - 60px); // або твоє значення з урахуванням Header
+  overflow: hidden;
+}
+
+.mapSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1c1c1c;
+  color: white;
+  font-family: 'Merriweather', serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2c2c2c;
+  padding: 12px 24px;
+  border-bottom: 2px solid #444;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 240px 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.exit {
+  background: #4a2525;
+  border: none;
+  padding: 8px 16px;
+  color: #f2dede;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.title {
+  margin: 0 auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f5e6b3;
+}

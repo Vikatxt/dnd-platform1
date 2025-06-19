@@ -1,0 +1,62 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.mapContainer {
+  position: relative;
+  background-size: contain;        // ✅ зберігає пропорції, не обрізає
+  background-repeat: no-repeat;    // ✅ не повторює плиткою
+  background-position: center;     // ✅ центрує зображення
+
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  user-select: none;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(30, 50, 80, 0.4);
+}
+
+
+.cell {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.character {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-headings;
+  font-size: 13px;
+  color: #fff;
+  background-color: green;
+  border-radius: 4px;
+  z-index: 10;
+  cursor: grab;
+  box-shadow: 0 0 4px rgba(0, 255, 0, 0.4);
+}
+
+.npc {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid orange;
+  border-radius: 4px;
+  z-index: 15;
+  cursor: grab;
+  box-shadow: 0 0 6px rgba(255, 170, 50, 0.3);
+}
+
+.fog {
+  position: absolute;
+  background-image: url('/textures/fog-thick.png'); // ← буде новий файл
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+}
+
+

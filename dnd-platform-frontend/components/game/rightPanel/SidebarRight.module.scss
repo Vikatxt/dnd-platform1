@@ -1,0 +1,67 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 12px;
+  gap: 16px;
+
+  background: url('/textures/panel-bg.jpg'), #121821;
+  background-size: cover;
+  border: 2px solid #2d3a42;
+  border-radius: 12px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+
+  font-family: 'Cinzel', serif;
+  color: #e6edf3;
+  max-width: 360px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #cdd8e5;
+  text-shadow: 0 0 6px #9dc1ff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.panelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.panelBlock {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px;
+  border-left: 3px solid #9dc1ff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #e2eaf2;
+  font-size: 0.95rem;
+
+  .label {
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 2px #9dc1ff;
+    margin-bottom: 4px;
+  }
+}
+
+.characterPanel,
+.inventoryPanel,
+.skillsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -1,0 +1,124 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  background-image: url('/textures/panel-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 3px solid #4a5c74;
+  border-radius: 12px;
+  box-shadow: 0 0 40px #000;
+  padding: 32px 36px;
+  width: 100%;
+  max-width: 520px;
+  font-family: $font-main;
+  color: #d6e3f0;
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid #5d6f82;
+    pointer-events: none;
+  }
+}
+
+.title {
+  font-family: $font-headings;
+  font-size: 28px;
+  margin-bottom: 18px;
+  @include blue-gradient-text;
+}
+
+.description {
+  font-family: $font-headings;
+  font-size: 18px;
+  color: #f5f0e6;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 26px;
+  font-family: $font-headings;
+  background: none;
+  border: none;
+  color: #d6e3f0;
+  cursor: pointer;
+
+  &:hover {
+    color: #f5f0e6;
+  }
+}
+
+.list {
+  max-height: 320px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.characterCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 35, 45, 0.4);
+  border: 1px solid #4a5c74;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: $font-headings;
+  color: #d6e3f0;
+}
+
+.chooseBtn {
+  @include image-button-secondary;
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #ffffff;
+}
+
+.createBtn {
+  @include image-button-secondary;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 24px;
+  font-size: 18px;
+  padding: 14px 28px;
+  font-family: $font-headings;
+  color: #ffffff;
+  text-align: center;
+
+  &:hover {
+    color: #f5f0e6;
+  }
+
+  &.secondary {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #4a5c74;
+  }
+}
+
+.empty {
+  font-family: $font-headings;
+  font-size: 16px;
+  color: #f5f0e6;
+  margin-top: 12px;
+}

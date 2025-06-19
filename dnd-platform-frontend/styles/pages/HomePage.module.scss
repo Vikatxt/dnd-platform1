@@ -1,0 +1,90 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100dvh;
+  width: 100%;
+  background-image: url('/backgrounds/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 32px 0 32px;
+}
+
+.blue-heading-hero {
+  @include blue-gradient-text;
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+
+  @media (max-width: 1024px) {
+    font-size: 54px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 38px;
+  }
+}
+
+.sub {
+  font-size: 26px;
+  font-family: $font-main;
+  max-width: 700px;
+  margin-bottom: 48px;
+  text-align: center;
+
+  @include blue-gradient-text;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.imageButton {
+  @include image-button-primary;
+
+  @media (max-width: 768px) {
+    transform: scale(0.95);
+    width: 220px;
+  }
+}
+
+.infoSection {
+  background-color: #161616;
+  color: var(--color-text);
+  padding: 80px 32px;
+  text-align: center;
+
+  h2 {
+    @include blue-gradient-text;
+    font-size: 52px;
+    margin-bottom: 28px;
+  }
+
+  p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-family: $font-main;
+    color: #b0c8e8;
+    opacity: 0.85;
+  }
+}

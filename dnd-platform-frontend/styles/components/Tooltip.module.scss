@@ -1,0 +1,24 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background: rgba(20, 25, 35, 0.9);
+  color: #dceaff;
+  font-size: 13px;
+  padding: 6px 10px;
+  border: 1px solid #6ea6ff;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 20;
+  font-family: $font-main;
+  box-shadow: 0 0 6px rgba(110, 183, 255, 0.2);
+}

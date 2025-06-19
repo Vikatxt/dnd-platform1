@@ -1,0 +1,45 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ring {
+  width: 80px;
+  height: 80px;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #5daeff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.text {
+  margin-top: 16px;
+  font-family: $font-headings;
+  font-size: 20px;
+  color: #cdd8f0;
+  @include blue-gradient-text;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

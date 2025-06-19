@@ -1,0 +1,110 @@
+@use './variables.scss' as *;
+
+// 🔹 Mixin для світло-синього тексту з градієнтом
+@mixin blue-gradient-text {
+  font-family: $font-headings;
+  background: linear-gradient(to bottom, #a8c7e0, #6b90ad); // Світло-блакитний до темно-блакитного
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(150, 200, 255, 0.2);
+}
+// 🧱 Базовий міксин (спільна структура)
+@mixin image-button-base($width, $font-size) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $width;
+  aspect-ratio: 9 / 5;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  filter: drop-shadow(0 0 10px rgba(120, 180, 255, 0.25));
+
+  &:hover {
+    filter: drop-shadow(0 0 14px rgba(140, 200, 255, 0.4))
+            drop-shadow(0 0 22px rgba(100, 180, 255, 0.2));
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    font-family: $font-headings;
+    font-size: $font-size;
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+  }
+}
+
+// 🔷 Основна кнопка (золотий текст, фонове зображення)
+@mixin image-button-primary {
+  @include image-button-base(250px, 20px);
+  background-image: url('/icons/button-homepage.png');
+
+  span {
+    color: #d6e3f0;
+  }
+}
+
+// 🔹 Другорядна кнопка (світлий текст, сірий фон)
+@mixin image-button-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 180px;
+  aspect-ratio: 9 / 4.2;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  background-image: url('/icons/button-secondary.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: #cde0f0;
+  font-family: $font-headings;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+
+  filter: drop-shadow(0 0 4px rgba(120, 160, 255, 0.12));
+
+  &:hover {
+    transform: scale(1.015);
+    filter: drop-shadow(0 0 10px rgba(140, 200, 255, 0.2));
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    font-family: $font-headings;
+    font-size: 16px;
+    color: #d6e3f0;
+    text-transform: uppercase;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    width: 160px;
+    aspect-ratio: 9 / 4.5;
+    span {
+      font-size: 14px;
+    }
+  }
+}
+

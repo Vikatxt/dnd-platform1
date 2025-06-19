@@ -1,0 +1,135 @@
+@use '@/styles/utils.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background-color: rgba(25, 30, 40, 0.92);
+  border: 1px solid rgba(176, 200, 232, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(120, 160, 255, 0.08);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(160, 210, 255, 0.22);
+    border-color: rgba(160, 190, 250, 0.3);
+  }
+}
+
+.image {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+  width: 100%; // ⬅️ гарантуємо, що не роздує контейнер
+}
+
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  position: relative;
+}
+
+.infoBlock {
+  padding-top: 10px;
+}
+
+.title {
+  font-family: $font-headings;
+  font-size: 22px;
+  font-weight: 700;
+  @include blue-gradient-text;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+
+.description {
+  font-family: $font-headings;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #d6e3f0;
+  opacity: 0.9;
+
+  max-height: calc(1.3em * 4); // 🔒 максимум 4 рядки по висоті
+  display: -webkit-box;
+  -webkit-line-clamp: 4;       // 🔄 дублюємо для підтримки старих браузерів
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  font-family: $font-headings;
+  color: #e2eeff;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 4px 0;
+  margin: 4px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  font-size: 0.84rem;
+  font-family: $font-headings;
+  color: #e2f0ff;
+  position: relative;
+  padding-top: 6px;
+  padding-bottom: 34px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:nth-child(even) {
+      text-align: right; // ✅ Вирівнюємо правий стовпчик
+    }
+  }
+}
+
+
+.date {
+  position: absolute;
+  bottom: 6px;
+  left: 16px;
+  font-size: 0.7rem;
+  font-family: $font-headings;
+  color: #a7bed4;
+  opacity: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+}

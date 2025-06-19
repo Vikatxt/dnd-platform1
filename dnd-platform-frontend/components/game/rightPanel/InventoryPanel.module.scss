@@ -1,0 +1,124 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/utils.scss' as *;
+
+.panel {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  border-left: 3px solid #9dc1ff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #e2eaf2;
+  font-family: $font-headings;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #cdd8e5;
+  text-shadow: 0 0 6px #9dc1ff;
+  @include blue-gradient-text;
+}
+
+.block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #4d5e7c;
+  padding: 10px;
+  border-radius: 8px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #a5c5ff;
+    text-shadow: 0 0 4px #6d91bc;
+    margin-bottom: 8px;
+
+    svg {
+      font-size: 18px;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #d6e0f5;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th, td {
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  th {
+    color: #a5c5ff;
+    text-shadow: 0 0 2px #6d91bc;
+  }
+
+  td {
+    color: #e7eefc;
+  }
+
+  tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.currency {
+  border: 1px solid #4a5c74;
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.02);
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #a5c5ff;
+    text-shadow: 0 0 4px #6d91bc;
+    margin-bottom: 6px;
+
+    svg {
+      font-size: 18px;
+    }
+  }
+}
+
+.coins {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.coin {
+  background: rgba(30, 40, 60, 0.5);
+  border: 1px solid #5a6c9c;
+  border-radius: 6px;
+  padding: 8px 12px;
+  text-align: center;
+  min-width: 60px;
+
+  strong {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+  }
+
+  span {
+    font-size: 12px;
+    color: #c5d6f3;
+  }
+}

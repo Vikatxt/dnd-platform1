@@ -1,0 +1,29 @@
+.panel {
+    height: 120px;
+    background: #2e2e2e;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .title {
+    font-weight: bold;
+  }
+  
+  .diceBtn {
+    padding: 8px 12px;
+    background: #4a3a2e;
+    border: none;
+    border-radius: 6px;
+    color: #f0f0f0;
+    font-weight: bold;
+    cursor: pointer;
+  
+    &:hover {
+      background: #614d3a;
+    }
+  }
+  

@@ -1,0 +1,17 @@
+@use './variables.scss' as *;
+
+// 🧱 Скидання стилів
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 🌍 Базові стилі
+html, body {
+  background-color: #1c1f2b;
+  color: #f5f0e6;
+  font-family: $font-main;
+  font-size: 16px;
+  line-height: 1.6;
+}

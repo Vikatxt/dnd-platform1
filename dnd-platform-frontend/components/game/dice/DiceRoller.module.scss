@@ -1,0 +1,68 @@
+@use '@/styles/variables.scss' as *;
+
+.panel {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  border: 2px solid #2d3a42;
+  font-family: 'Cinzel', serif;
+  color: #e6edf3;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: #cdd8e5;
+  text-shadow: 0 0 6px #9dc1ff;
+  margin-bottom: 12px;
+}
+
+.diceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.diceBtn {
+  padding: 8px 14px;
+  background: #1c2631;
+  border: 2px solid #6d91bc;
+  border-radius: 6px;
+  color: #d9eaff;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #293742;
+    box-shadow: 0 0 6px #9dc1ff;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.display {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #9dc1ff;
+  color: #a5cfff;
+  min-height: 32px;
+}
+
+.rolling {
+  animation: flicker 0.3s infinite;
+}
+
+@keyframes flicker {
+  0%   { opacity: 0.3 }
+  50%  { opacity: 1 }
+  100% { opacity: 0.3 }
+}

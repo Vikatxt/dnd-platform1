@@ -1,0 +1,84 @@
+@use "@/styles/variables.scss" as *;
+
+// 🔹 Стилі для самого хедера
+.header {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1600px;
+  height: 50px;
+  z-index: 999;
+  background-color: #0c1419;
+  border: 1px solid #1f2a30;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  font-family: $font-headings;
+  transition: all 0.4s ease;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+// 🔹 Лого
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #a8c7e0, #6b90ad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  &:hover {
+    text-shadow: 0 0 8px rgba(150, 200, 255, 0.5);
+  }
+}
+
+// 🔹 НОВА смужка
+.separator {
+  flex-grow: 1;
+  height: 2px;
+  background: linear-gradient(to right, #a8c7e0, #6b90ad);
+  border-radius: 2px;
+}
+
+// 🔹 Кнопки
+.actions {
+  display: flex;
+  gap: 36px;
+
+  button {
+    background: none;
+    border: none;
+    font-family: $font-headings;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: 0.3s;
+
+    background: linear-gradient(to bottom, #a8c7e0, #6b90ad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    &:hover {
+      text-shadow: 0 0 8px rgba(150, 200, 255, 0.5);
+    }
+  }
+}
