@@ -1,0 +1,193 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PLAYER
+  ADMIN
+}
+
+enum Difficulty {
+  EASY
+  NORMAL
+  HARD
+  INSANE
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  phone    String? @unique
+  username String  @unique
+  nickname String
+  password String
+  role     Role    @default(PLAYER)
+
+  campaigns      CampaignPlayer[]
+  ownedCampaigns Campaign[] @relation("CampaignOwner")
+  characters     Character[]
+  messages       Message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Campaign {
+  id             String           @id @default(uuid())
+  name           String
+  description    String?
+  avatar         String?
+  ownerId        String
+  owner          User             @relation("CampaignOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  players        CampaignPlayer[]
+  characters     Character[]
+  combatSessions CombatSession[]
+  maps           Map[]            @relation("CampaignMaps")
+  messages       Message[]
+
+  activeMapId    String?
+  activeMap      Map?             @relation("ActiveMap", fields: [activeMapId], references: [id])
+
+  isPublic        Boolean    @default(true)
+  maxPlayers      Int        @default(6)
+  allowMulticlass Boolean    @default(false)
+  useHomebrew     Boolean    @default(false)
+  mapGridSize     Int        @default(5)
+  difficulty      Difficulty @default(NORMAL)
+  startLevel      Int        @default(1)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CampaignPlayer {
+  id         String  @id @default(uuid())
+  campaignId String
+  playerId   String
+  isDM       Boolean @default(false)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  player   User     @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
+
+model Character {
+  id         String   @id @default(uuid())
+  name       String
+  class      String
+  race       String
+  level      Int      @default(1)
+  stats      Json
+  playerId   String
+  campaignId String
+  details    Json?
+
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  player     User     @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  combatTurns CombatTurn[]
+  positions   CharacterPosition[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Npc {
+  id        String   @id @default(uuid())
+  name      String
+  type      String
+  imageUrl  String?
+  stats     Json?
+
+  mapId     String?
+  map       Map?      @relation(fields: [mapId], references: [id], onDelete: Cascade)
+
+  x         Int       @default(0)
+  y         Int       @default(0)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model CombatSession {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  turns CombatTurn[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CombatTurn {
+  id              String @id @default(uuid())
+  combatSessionId String
+  characterId     String
+  order           Int
+
+  combatSession CombatSession @relation(fields: [combatSessionId], references: [id], onDelete: Cascade)
+  character     Character     @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Map {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation("CampaignMaps", fields: [campaignId], references: [id], onDelete: Cascade)
+
+  campaignsWithThisMapActive Campaign[] @relation("ActiveMap")
+
+  imageUrl   String
+  name     String?
+
+  width      Int
+  height     Int
+  fog        Json     @default("{}")
+
+  positions CharacterPosition[]
+  fogTiles  FogTile[]
+  npcs      Npc[]
+
+  createdAt DateTime @default(now())
+}
+
+model CharacterPosition {
+  id          String    @id @default(uuid())
+  characterId String
+  character   Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  x           Int
+  y           Int
+  mapId       String
+  map         Map       @relation(fields: [mapId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  senderId   String
+  sender     User     @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  content   String
+  createdAt DateTime @default(now())
+}
+
+model FogTile {
+  id     String  @id @default(uuid())
+  mapId  String
+  map    Map     @relation(fields: [mapId], references: [id], onDelete: Cascade)
+  x      Int
+  y      Int
+  hidden Boolean @default(true)
+}
